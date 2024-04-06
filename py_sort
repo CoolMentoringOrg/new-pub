@@ -1,0 +1,9 @@
+fruits = ['Apple', 'Banana', 'Orange', 'Mango']
+
+def compare_fruits(fruit1, fruit2):
+    return fruit1.lower() < fruit2.lower()  # Custom comparison function for case-insensitive sorting
+
+fruits.sort(key=lambda x: x.lower(), cmp=compare_fruits)  # Sorting the list using the custom comparison function
+print("Sorted fruits:")
+for fruit in fruits:
+    print(fruit)

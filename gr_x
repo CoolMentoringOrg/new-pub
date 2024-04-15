@@ -1,0 +1,31 @@
+import networkx as nx
+
+def find_connected_components(graph):
+    """
+    Find connected components in the graph.
+    """
+    connected_components = list(nx.connected_components(graph))
+    return connected_components
+
+def main():
+    # Example dictionary representing GitHub repo dependencies
+    github_repos = {
+        'repo1': ['repo2', 'repo3'],
+        'repo2': ['repo4'],
+        'repo3': [],
+        'repo4': [],
+        'repo5': ['repo6'],
+        'repo6': []
+    }
+
+    # Create a directed graph from the dictionary
+    graph = nx.DiGraph(github_repos)
+
+    # Find connected components
+    connected_components = find_connected_components(graph)
+    print("Connected Components:")
+    for component in connected_components:
+        print(component)
+
+if __name__ == "__main__":
+    main()

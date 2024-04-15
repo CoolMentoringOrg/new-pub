@@ -25,18 +25,22 @@ def find_connected_components(graph):
 
     return connected_components
 
-# Example dictionary representing GitHub repo dependencies
-github_repos = {
-    'repo1': ['repo2', 'repo3'],
-    'repo2': ['repo4'],
-    'repo3': [],
-    'repo4': [],
-    'repo5': ['repo6'],
-    'repo6': []
-}
+def main():
+    # Example dictionary representing GitHub repo dependencies
+    github_repos = {
+        'repo1': ['repo2', 'repo3'],
+        'repo2': ['repo4'],
+        'repo3': [],
+        'repo4': [],
+        'repo5': ['repo6'],
+        'repo6': []
+    }
 
-# Find connected components
-connected_components = find_connected_components(github_repos)
-print("Connected Components:")
-for component in connected_components:
-    print(component)
+    # Find connected components
+    connected_components = find_connected_components(github_repos)
+    print("Connected Components:")
+    for component in connected_components:
+        print(component)
+
+if __name__ == "__main__":
+    main()

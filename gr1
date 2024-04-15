@@ -1,0 +1,42 @@
+def dfs(graph, node, visited, group):
+    """
+    Depth-First Search (DFS) algorithm to traverse the graph
+    and group nodes into connected components.
+    """
+    visited.add(node)
+    group.append(node)
+
+    for neighbor in graph.get(node, []):
+        if neighbor not in visited:
+            dfs(graph, neighbor, visited, group)
+
+def find_connected_components(graph):
+    """
+    Find connected components in the graph.
+    """
+    visited = set()
+    connected_components = []
+
+    for node in graph:
+        if node not in visited:
+            group = []
+            dfs(graph, node, visited, group)
+            connected_components.append(group)
+
+    return connected_components
+
+# Example dictionary representing GitHub repo dependencies
+github_repos = {
+    'repo1': ['repo2', 'repo3'],
+    'repo2': ['repo4'],
+    'repo3': [],
+    'repo4': [],
+    'repo5': ['repo6'],
+    'repo6': []
+}
+
+# Find connected components
+connected_components = find_connected_components(github_repos)
+print("Connected Components:")
+for component in connected_components:
+    print(component)
